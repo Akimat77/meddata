@@ -1,0 +1,16 @@
+/* frontend/src/components/HealthTimeline.module.css */
+.timeline {
+    position: relative;
+    padding-left: 40px;
+    list-style: none; /* Убираем стандартные маркеры списка */
+    margin: 0;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    bottom: 20px;
+    width: 2px;
+    background-color: var(--border-color);
+}

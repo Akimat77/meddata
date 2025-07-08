@@ -1,0 +1,33 @@
+/* frontend/src/index.css */
+
+/* Импортируем шрифт Inter с Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Определяем наши фирменные цвета как переменные */
+:root {
+    --primary-color: #007AFF;
+    --secondary-color: #34C759;
+    --warning-color: #FF9500;
+    --danger-color: #FF3B30;
+    --dark-color: #1C1C1E;
+    --light-color: #ffffff;
+    --gray-background: #F2F2F7;
+    --text-color: #333333;
+    --text-color-secondary: #6c757d;
+    --border-color: #E5E5EA;
+}
+
+/* Сбрасываем стандартные стили и задаем базовые */
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--gray-background);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Убираем подчеркивание у ссылок */
+a {
+    text-decoration: none;
+}

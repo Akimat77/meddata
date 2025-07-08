@@ -1,0 +1,76 @@
+/* frontend/src/components/VitalsDashboard.module.css */
+.container {
+    padding-top: 2rem;
+}
+.formCard {
+    background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+.formCard h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+.formGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 1rem;
+    align-items: flex-end;
+}
+.formGroup label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+.input, .select {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+.button {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--light-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.historyCard {
+    background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+}
+.historyCard h3 {
+    margin-top: 0;
+}
+.historyTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+.historyTable th, .historyTable td {
+    text-align: left;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chartCard {
+    background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}

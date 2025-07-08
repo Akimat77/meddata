@@ -1,0 +1,89 @@
+/* frontend/src/components/ShareModal.module.css */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+.title {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+.instructions {
+    color: var(--text-color-secondary);
+    margin-bottom: 2rem;
+}
+.qrCodeContainer {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+.closeButton {
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--gray-background);
+}
+.linkContainer {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.linkTitle {
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+    margin: 0 0 1rem 0;
+}
+
+.linkBox {
+    display: flex;
+    align-items: center;
+    background-color: var(--gray-background);
+    border-radius: 8px;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.urlText {
+    flex-grow: 1;
+    font-family: monospace;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 0.5rem;
+}
+
+.copyButton {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    background-color: var(--light-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.copyButton:hover {
+    background-color: #f0f0f0;
+}

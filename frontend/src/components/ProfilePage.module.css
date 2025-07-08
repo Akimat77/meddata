@@ -1,0 +1,74 @@
+/* frontend/src/components/ProfilePage.module.css */
+.profileContainer {
+    padding: 2rem 0;
+}
+.controlsHeader {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+.card {
+    background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.card h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+.dataRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--gray-background);
+    font-size: 1rem;
+}
+.dataRow:last-child {
+    border-bottom: none;
+}
+.label {
+    color: var(--text-color-secondary);
+}
+.value {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.unit {
+    margin-left: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+}
+.input {
+    padding: 6px 10px;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    text-align: right;
+    max-width: 150px;
+}
+.tagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+}
+.tag {
+    background-color: #ffeaea;
+    color: #d93025;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
