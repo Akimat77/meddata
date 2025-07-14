@@ -11,6 +11,8 @@ import { Record as RecordData } from './types';
 import { ShareModal } from './components/ShareModal';
 import { DoctorViewPage } from './components/DoctorViewPage';
 import { RemindersPage } from './components/RemindersPage'; // Импортируем новый компонент
+import { ComplaintsPage } from './components/ComplaintsPage';
+import { CoursesPage } from './components/CoursesPage';
 import './App.css';
 
 const AppRouter: React.FC = () => {
@@ -30,7 +32,7 @@ function MainApp() {
   const [isFormVisible, setFormVisible] = useState(false);
   const [authView, setAuthView] = useState<'login' | 'register'>('login');
   const [editingRecord, setEditingRecord] = useState<RecordData | null>(null);
-  const [mainView, setMainView] = useState<'profile' | 'timeline' | 'vitals' | 'reminders'>('profile');
+  const [mainView, setMainView] = useState<'profile' | 'timeline' | 'vitals' | 'reminders' | 'complaints' | 'courses'>('profile');
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [sharingToken, setSharingToken] = useState<string | null>(null);
 
@@ -87,6 +89,8 @@ function MainApp() {
             <button onClick={() => setMainView('vitals')} className={mainView === 'vitals' ? 'active' : ''}>Мониторинг</button>
             <button onClick={() => setMainView('timeline')} className={mainView === 'timeline' ? 'active' : ''}>Лента здоровья</button>
             <button onClick={() => setMainView('reminders')} className={mainView === 'reminders' ? 'active' : ''}>Напоминания</button>
+            <button onClick={() => setMainView('complaints')} className={mainView === 'complaints' ? 'active' : ''}>Мои Жалобы</button>
+            <button onClick={() => setMainView('courses')} className={mainView === 'courses' ? 'active' : ''}>Курсы лечения</button>
         </div>
         <div className="dashboard-controls">
           <button onClick={handleGenerateShareToken} className="button button-primary">Поделиться с врачом</button>
@@ -96,6 +100,8 @@ function MainApp() {
       <div className="main-content-container">
         {mainView === 'profile' && token && <ProfilePage token={token} />}
         {mainView === 'vitals' && token && <VitalsDashboard token={token} />}
+        {mainView === 'complaints' && token && <ComplaintsPage token={token} />}
+        {mainView === 'courses' && token && <CoursesPage token={token} />}
         {mainView === 'reminders' && token && (
           <RemindersPage 
             token={token} 

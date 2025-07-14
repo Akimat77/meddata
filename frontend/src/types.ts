@@ -61,6 +61,7 @@ export interface Record {
   id: number;
   date: string;
   resource_type: string;
+  course_id?: number;
   doctor_name?: string;
   clinic_name?: string;
   patient_complaints?: string;
@@ -94,4 +95,22 @@ export interface Reminder {
   time: string; // Время приходит как строка, например "09:00:00"
   days_of_week: number[];
   is_active: boolean;
+}
+
+export interface Complaint {
+  id: number;
+  complaint_text: string;
+  start_date?: string;
+  status: string;
+  created_at: string;
+}
+
+export interface TreatmentCourse {
+  id: number;
+  owner_id: number;
+  name: string;
+  start_date?: string;
+  status: string;
+  records: Record[];
+  complaints: Complaint[];
 }

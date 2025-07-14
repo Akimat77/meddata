@@ -1,0 +1,109 @@
+/* frontend/src/components/ComplaintsPage.module.css */
+
+.container {
+    display: grid;
+    grid-template-columns: 400px 1fr; /* Фиксированная колонка для формы, остальное для списка */
+    gap: 2rem;
+    padding: 2rem 0;
+    align-items: start;
+}
+
+/* Стили для карточек */
+.formCard, .listCard {
+    background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.formCard h3, .listCard h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Стили для элементов формы */
+.formGroup {
+    margin-bottom: 1rem;
+}
+
+.formGroup label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.textarea, .input {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.button {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* Стили для списка жалоб */
+.complaintList {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.complaintItem {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--gray-background);
+}
+.complaintItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.complaintItem:first-child {
+    padding-top: 0;
+}
+
+.complaintText {
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.complaintMeta {
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+}
+
+.status {
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+.statusActive {
+    background-color: #ffeaea;
+    color: #d93025;
+}
+
+.statusResolved {
+    background-color: #e6f4ea;
+    color: #1e8e3e;
+}
