@@ -101,6 +101,11 @@ class UserBase(BaseModel):
     last_name: Optional[str] = None
     birth_date: Optional[date] = None
 
+class UserUpdate(BaseModel):
+    first_name: Optional[str] = None
+    last_name: Optional[str] = None
+    birth_date: Optional[date] = None
+
 class UserCreate(UserBase):
     password: str
     custom_allergy: Optional[str] = None
@@ -116,6 +121,22 @@ class User(UserBase):
     allergies: List[Allergy] = []
     chronic_diseases: List[ChronicDisease] = []
     class Config(_BaseConfig): pass
+
+# --- Схемы для Жалоб ---
+class ComplaintBase(BaseModel):
+    complaint_text: str
+    start_date: Optional[date] = None
+
+class ComplaintCreate(ComplaintBase):
+    course_id: Optional[int] = None
+
+class Complaint(_BaseConfig, ComplaintBase):
+    id: int
+    owner_id: int
+    course_id: Optional[int] = None
+    created_at: datetime
+    status: str
+
 
 # --- Схемы для Токена и Обмена данными ---
 class Token(BaseModel):
@@ -146,3 +167,15 @@ class Reminder(ReminderBase):
 
     class Config:
         orm_mode = True
+
+# --- Курсы лечения ---
+class TreatmentCourseBase(BaseModel):
+    name: str
+    start_date: Optional[date] = None
+    status: str = "active"
+class TreatmentCourseCreate(TreatmentCourseBase): pass
+class TreatmentCourse(TreatmentCourseBase):
+    id: int; owner_id: int
+    records: List[RecordForTimeline] = []
+    complaints: List[Complaint] = [] # <-- Добавлено
+    class Config(_BaseConfig): pass

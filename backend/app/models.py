@@ -48,11 +48,15 @@ class User(Base):
     last_name = Column(String, nullable=True)
     birth_date = Column(Date, nullable=True)
     is_active = Column(Boolean, default=True)
+
     records = relationship("Record", back_populates="owner")
     profile = relationship("Profile", back_populates="user", uselist=False)
     allergies = relationship("Allergy", secondary=user_allergy_association, backref="users")
     chronic_diseases = relationship("ChronicDisease", secondary=user_disease_association, backref="users")
     vitals = relationship("VitalsRecord", back_populates="owner")
+    reminders = relationship("Reminder", back_populates="owner")
+    complaints = relationship("Complaint", back_populates="owner")
+    courses = relationship("TreatmentCourse", back_populates="owner")
 
 class VitalsRecord(Base):
     __tablename__ = "vitals_records"
@@ -81,7 +85,9 @@ class Record(Base):
     result = Column(String, nullable=True)
     reference_range = Column(String, nullable=True)
     owner_id = Column(Integer, ForeignKey("users.id"))
+    course_id = Column(Integer, ForeignKey("treatment_courses.id"), nullable=True)
     owner = relationship("User", back_populates="records")
+    course = relationship("TreatmentCourse", back_populates="records")
 
 class Profile(Base):
     __tablename__ = "profiles"
@@ -114,3 +120,26 @@ class Profile(Base):
     joint_age = Column(Integer, nullable=True)
     kidney_age = Column(Integer, nullable=True)
     user = relationship("User", back_populates="profile")
+
+class TreatmentCourse(Base):
+    __tablename__ = "treatment_courses"
+    id = Column(Integer, primary_key=True, index=True)
+    owner_id = Column(Integer, ForeignKey("users.id"))
+    name = Column(String, nullable=False)
+    start_date = Column(Date, nullable=True)
+    status = Column(String, default="active")
+    owner = relationship("User", back_populates="courses")
+    records = relationship("Record", back_populates="course")
+    complaints = relationship("Complaint", back_populates="course")
+
+class Complaint(Base):
+    __tablename__ = "complaints"
+    id = Column(Integer, primary_key=True, index=True)
+    owner_id = Column(Integer, ForeignKey("users.id"))
+    course_id = Column(Integer, ForeignKey("treatment_courses.id"), nullable=True)
+    complaint_text = Column(Text, nullable=False)
+    start_date = Column(Date, nullable=True)
+    status = Column(String, default="active")
+    created_at = Column(DateTime, default=datetime.utcnow)
+    owner = relationship("User", back_populates="complaints")
+    course = relationship("TreatmentCourse", back_populates="complaints")
